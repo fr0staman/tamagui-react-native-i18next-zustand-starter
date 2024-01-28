@@ -60,13 +60,7 @@ module.exports = function () {
         skipDefaultConversion: true,
       },
     },
-    transpilePackages: [
-      'solito',
-      'react-native-web',
-      'expo-linking',
-      'expo-constants',
-      'expo-modules-core',
-    ],
+    transpilePackages: ['solito', 'react-native-web'],
     experimental: {
       scrollRestoration: true,
     },
