@@ -1,28 +1,31 @@
-# Tamagui + Solito + Next + Expo Monorepo
-
-```sh
-npm create tamagui
-```
+# Tamagui + Next + Solito + i18next + Zustand Monorepo
+<div align="center">
+  <i>unofficial, made by <a href="https://github.com/fr0staman">@fr0staman</a></i>
+</div>
 
 ## 🔦 About
 
-This monorepo is a starter for an Expo + Next.js + Tamagui + Solito app.
+This monorepo is a starter, example for an React Native CLI + Next.js + Tamagui + Solito + i18next + Zustand app.
 
-Many thanks to [@FernandoTheRojo](https://twitter.com/fernandotherojo) for the Solito starter monorepo which this was forked from. Check out his [talk about using expo + next together at Next.js Conf 2021](https://www.youtube.com/watch?v=0lnbdRweJtA).
+This is a fork from <a href="https://github.com/tamagui/starter-free">official tamagui template</a>.
+
+I did this to suit my needs, but I see a lot of difficulties for installation, so I decided to share, maybe it will help someone.
 
 ## 📦 Included packages
 
 - [Tamagui](https://tamagui.dev) 🪄
 - [solito](https://solito.dev) for cross-platform navigation
-- Expo SDK
+- React Native CLI
 - Next.js
-- Expo Router
+- React-navigation
+- i18next (coming soon)
+- Zustand (coming soon)
 
 ## 🗂 Folder layout
 
 The main apps are:
 
-- `expo` (native)
+- `native` (mobile)
 - `next` (web)
 
 - `packages` shared packages across apps
@@ -43,7 +46,7 @@ To run with optimizer on in dev mode (just for testing, it's faster to leave it 
 
 To see debug output to verify the compiler, add `// debug` as a comment to the top of any file.
 
-- Expo local dev: `yarn native`
+- RN local dev: `yarn native`
 
 ## UI Kit
 
@@ -66,10 +69,10 @@ yarn
 
 ### Native dependencies
 
-If you're installing a library with any native code, you must install it in `expo`:
+If you're installing a library with any native code, you must install it in `native`:
 
 ```sh
-cd apps/expo
+cd apps/native
 yarn add react-native-reanimated
 cd ..
 yarn
