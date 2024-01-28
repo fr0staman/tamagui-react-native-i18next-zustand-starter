@@ -6,7 +6,7 @@
     "./packages/*"
   ],
   "scripts": {
-    "native": "cd apps/expo && yarn start",
+    "native": "cd apps/native && yarn start",
     "watch": "yarn workspaces foreach -pi run watch",
     "vercel:install": "yarn set version 3.5 && yarn install",
     "web": "yarn build && cd apps/next && yarn next",
@@ -24,11 +24,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-refresh": "^0.14.0",
-    "react-native-svg": "13.9.0",
+    "react-native-svg": "^14.1.0",
     "react-native-web": "~0.19.6"
   },
   "dependencies": {
-    "@babel/runtime": "^7.18.9",
+    "@babel/runtime": "^7.20.0",
     "@manypkg/cli": "^0.19.1",
     "check-dependency-version-consistency": "^3.0.3",
     "eslint": "^8.21.0",
