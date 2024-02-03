@@ -24,7 +24,6 @@ module.exports = function (api) {
           config: '../../packages/config/src/tamagui.config.ts',
         },
       ],
-      'transform-inline-environment-variables',
     ],
   }
 }
