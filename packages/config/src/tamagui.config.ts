@@ -1,27 +1,26 @@
-import { createTamagui } from 'tamagui'
-import { createInterFont } from '@tamagui/font-inter'
-import { shorthands } from '@tamagui/shorthands'
-import { tokens } from '@tamagui/themes/v2'
-import { themes } from '@tamagui/themes/v2-themes'
-import { createMedia } from '@tamagui/react-native-media-driver'
-
-import { animations } from '@my/ui/src/animations'
+import { animations } from "@my/ui/src/animations";
+import { createInterFont } from "@tamagui/font-inter";
+import { createMedia } from "@tamagui/react-native-media-driver";
+import { shorthands } from "@tamagui/shorthands";
+import { tokens } from "@tamagui/themes/v2";
+import { themes } from "@tamagui/themes/v2-themes";
+import { createTamagui } from "tamagui";
 
 const headingFont = createInterFont({
   size: {
     6: 15,
   },
   transform: {
-    6: 'uppercase',
-    7: 'none',
+    6: "uppercase",
+    7: "none",
   },
   weight: {
-    6: '400',
-    7: '700',
+    6: "400",
+    7: "700",
   },
   color: {
-    6: '$colorFocus',
-    7: '$color',
+    6: "$colorFocus",
+    7: "$color",
   },
   letterSpacing: {
     5: 2,
@@ -35,35 +34,40 @@ const headingFont = createInterFont({
     15: -6,
   },
   face: {
-    700: { normal: 'Inter-Bold' },
+    700: { normal: "Inter-Bold" },
   },
-})
+});
 
 const bodyFont = createInterFont(
   {
     face: {
-      700: { normal: 'Inter-Bold' },
+      700: { normal: "Inter-Bold" },
     },
   },
   {
     sizeSize: (size) => Math.round(size * 1.1),
     sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
   }
-)
+);
 
 export const config = createTamagui({
-  defaultFont: 'body',
+  defaultFont: "body",
   animations,
   shouldAddPrefersColorThemes: true,
   themeClassNameOnRoot: true,
-  onlyAllowShorthands: true,
+  
+  // highly recommended to turn this on if you are using shorthands
+  // to avoid having multiple valid style keys that do the same thing
+  // we leave it off by default because it can be confusing as you onboard.
+  onlyAllowShorthands: false,
   shorthands,
+
   fonts: {
     body: bodyFont,
     heading: headingFont,
   },
   settings: {
-    allowedStyleValues: 'somewhat-strict',
+    allowedStyleValues: "somewhat-strict",
   },
   themes,
   tokens,
@@ -80,10 +84,10 @@ export const config = createTamagui({
     gtLg: { minWidth: 1280 + 1 },
     short: { maxHeight: 820 },
     tall: { minHeight: 820 },
-    hoverNone: { hover: 'none' },
-    pointerCoarse: { pointer: 'coarse' },
+    hoverNone: { hover: "none" },
+    pointerCoarse: { pointer: "coarse" },
   }),
-})
+});
 
 // for the compiler to find it
-export default config
+export default config;
