@@ -26,7 +26,8 @@
     "ecmaVersion": "latest",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "requireConfigFile": false
   }, 
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off",
