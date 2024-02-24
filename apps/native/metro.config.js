@@ -1,5 +1,6 @@
-const { getDefaultConfig } = require('@react-native/metro-config')
-const path = require('path')
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { getDefaultConfig } = require("@react-native/metro-config");
+const path = require("path");
 
 /**
  * Metro configuration
@@ -7,15 +8,15 @@ const path = require('path')
  *
  * @type {import('metro-config').MetroConfig}
  */
-const projectRoot = __dirname
-const workspaceRoot = path.resolve(__dirname, '../..')
+const projectRoot = __dirname;
+const workspaceRoot = path.resolve(__dirname, "../..");
 
-const config = getDefaultConfig(projectRoot)
+const config = getDefaultConfig(projectRoot);
 
-config.watchFolders = [workspaceRoot]
+config.watchFolders = [workspaceRoot];
 config.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, 'node_modules'),
-  path.resolve(workspaceRoot, 'node_modules'),
-]
+  path.resolve(projectRoot, "node_modules"),
+  path.resolve(workspaceRoot, "node_modules"),
+];
 
-module.exports = config
+module.exports = config;

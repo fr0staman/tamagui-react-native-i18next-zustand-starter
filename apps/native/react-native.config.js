@@ -3,5 +3,5 @@ module.exports = {
     ios: {},
     android: {},
   },
-  assets: ['../../node_modules/@tamagui/font-inter/otf'],
+  assets: ["../../node_modules/@tamagui/font-inter/otf"],
 };

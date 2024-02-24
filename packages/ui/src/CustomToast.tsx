@@ -1,5 +1,5 @@
-import { NativeToast } from "./NativeToast"
+import { NativeToast } from "./NativeToast";
 
 export const CustomToast = () => {
-  return <NativeToast />
-}
+  return <NativeToast />;
+};

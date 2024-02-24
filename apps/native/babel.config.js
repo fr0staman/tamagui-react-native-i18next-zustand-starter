@@ -1,29 +1,29 @@
 module.exports = function (api) {
-  api.cache(true)
+  api.cache(true);
   return {
-    presets: ['module:@react-native/babel-preset'],
+    presets: ["module:@react-native/babel-preset"],
     plugins: [
       [
-        require.resolve('babel-plugin-module-resolver'),
+        require.resolve("babel-plugin-module-resolver"),
         {
-          root: ['../..'],
+          root: ["../.."],
           alias: {
             // define aliases to shorten the import paths
-            app: '../../packages/app',
-            '@my/ui': '../../packages/ui',
+            app: "../../packages/app",
+            "@my/ui": "../../packages/ui",
           },
-          extensions: ['.js', '.jsx', '.tsx', '.ios.js', '.android.js'],
+          extensions: [".js", ".jsx", ".tsx", ".ios.js", ".android.js"],
         },
       ],
       // if you want reanimated support
       // 'react-native-reanimated/plugin',
       [
-        '@tamagui/babel-plugin',
+        "@tamagui/babel-plugin",
         {
-          components: ['@my/ui', 'tamagui'],
-          config: '../../packages/config/src/tamagui.config.ts',
+          components: ["@my/ui", "tamagui"],
+          config: "../../packages/config/src/tamagui.config.ts",
         },
       ],
     ],
-  }
-}
+  };
+};

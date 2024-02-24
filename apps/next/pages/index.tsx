@@ -1,5 +1,5 @@
-import { HomeScreen } from 'app/features/home/screen'
-import Head from 'next/head'
+import { HomeScreen } from "app/features/home/screen";
+import Head from "next/head";
 
 export default function Page() {
   return (
@@ -9,5 +9,5 @@ export default function Page() {
       </Head>
       <HomeScreen />
     </>
-  )
+  );
 }

@@ -1,28 +1,24 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { useMemo } from 'react'
+import { NavigationContainer } from "@react-navigation/native";
+import { useMemo } from "react";
 
-export function AppNavContainer({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export function AppNavContainer({ children }: { children: React.ReactNode }) {
   return (
     <NavigationContainer
       linking={useMemo(
         () => ({
-          prefixes: ['/'],
+          prefixes: ["/"],
           config: {
-            initialRouteName: 'home',
+            initialRouteName: "home",
             screens: {
-              home: '',
-              'user': 'user/:id',
+              home: "",
+              user: "user/:id",
             },
           },
         }),
-        []
+        [],
       )}
     >
       {children}
     </NavigationContainer>
-  )
+  );
 }
