@@ -1,0 +1,6 @@
+{
+  "extends": ["../../.eslintrc.json", "next"],
+  "rules": {
+    "@next/next/no-html-link-for-pages": ["error", "apps/next/pages/"]
+  }
+}

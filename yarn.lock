@@ -8413,6 +8413,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-simple-import-sort@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "eslint-plugin-simple-import-sort@npm:10.0.0"
+  peerDependencies:
+    eslint: ">=5.0.0"
+  checksum: 10/462187d3c137ba0986586a4759fe57c1c3fc1850750cb785f335b9b235346a1d96ebfcfb558847fc1a3b319718f2736178a66a61a0c184c86d48b21c1e0df26b
+  languageName: node
+  linkType: hard
+
 "eslint-scope@npm:5.1.1, eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
@@ -12081,7 +12090,6 @@ __metadata:
     "@babel/runtime": "npm:^7.20.0"
     "@my/ui": "npm:0.0.1"
     "@react-native/babel-preset": "npm:0.73.20"
-    "@react-native/eslint-config": "npm:0.73.2"
     "@react-native/metro-config": "npm:0.73.4"
     "@react-native/typescript-config": "npm:0.73.1"
     "@react-navigation/native": "npm:^6.1.6"
@@ -14627,8 +14635,16 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.20.0"
     "@manypkg/cli": "npm:^0.19.1"
+    "@react-native/eslint-config": "npm:0.73.2"
+    "@typescript-eslint/eslint-plugin": "npm:^5.57.1"
+    "@typescript-eslint/parser": "npm:^5.57.1"
     check-dependency-version-consistency: "npm:^3.0.3"
     eslint: "npm:^8.21.0"
+    eslint-plugin-import: "npm:^2.28.1"
+    eslint-plugin-prettier: "npm:^4.2.1"
+    eslint-plugin-react: "npm:^7.33.2"
+    eslint-plugin-react-hooks: "npm:^4.6.0"
+    eslint-plugin-simple-import-sort: "npm:^10.0.0"
     node-gyp: "npm:^9.3.1"
     prettier: "npm:^2.7.1"
     turbo: "npm:^1.10.3"
