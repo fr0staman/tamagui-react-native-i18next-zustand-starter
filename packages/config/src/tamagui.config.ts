@@ -47,7 +47,7 @@ const bodyFont = createInterFont(
   {
     sizeSize: (size) => Math.round(size * 1.1),
     sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
-  }
+  },
 );
 
 export const config = createTamagui({
@@ -55,7 +55,7 @@ export const config = createTamagui({
   animations,
   shouldAddPrefersColorThemes: true,
   themeClassNameOnRoot: true,
-  
+
   // highly recommended to turn this on if you are using shorthands
   // to avoid having multiple valid style keys that do the same thing
   // we leave it off by default because it can be confusing as you onboard.
