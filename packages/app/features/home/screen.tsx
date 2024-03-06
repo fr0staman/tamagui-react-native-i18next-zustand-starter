@@ -5,12 +5,16 @@ import {
   Paragraph,
   Separator,
   Sheet,
+  ToggleGroup,
+  useAppTheme,
+  useClient,
   useToastController,
   XStack,
   YStack,
 } from "@my/ui";
-import { ChevronDown, ChevronUp } from "@tamagui/lucide-icons";
-import { useState } from "react";
+import { ChevronDown, ChevronUp, Moon, Orbit, Sun } from "@tamagui/lucide-icons";
+import { Theme } from "app/theme/constants";
+import { useCallback, useState } from "react";
 import { useLink } from "solito/link";
 
 export function HomeScreen() {
@@ -23,20 +27,20 @@ export function HomeScreen() {
       <YStack space="$4" bc="$background">
         <H1 ta="center">Welcome to Tamagui.</H1>
         <Paragraph ta="center">
-          Here's a basic starter to show navigating from one screen to another. This screen uses the
-          same code on Next.js and React Native.
+          Here&apos;s a basic starter to show navigating from one screen to another. This screen
+          uses the same code on Next.js and React Native.
         </Paragraph>
 
         <Separator />
         <Paragraph ta="center">
-          Made by{" "}
-          <Anchor color="$color12" href="https://twitter.com/natebirdman" target="_blank">
-            @natebirdman
+          Modified by{" "}
+          <Anchor color="$color12" href="https://github.com/fr0staman" target="_blank">
+            @fr0staman
           </Anchor>
           ,{" "}
           <Anchor
             color="$color12"
-            href="https://github.com/tamagui/tamagui"
+            href="https://github.com/fr0staman/tamagui-react-native-i18next-zustand-starter"
             target="_blank"
             rel="noreferrer"
           >
@@ -45,14 +49,48 @@ export function HomeScreen() {
         </Paragraph>
       </YStack>
 
-      <XStack>
+      <XStack display="flex" flexDirection="row" gap={"$space.2.5"}>
         <Button {...linkProps}>Link to user</Button>
+        <ChangeThemeGroup />
       </XStack>
 
       <SheetDemo />
     </YStack>
   );
 }
+
+const ChangeThemeGroup = () => {
+  const isClient = useClient();
+  const { theme, setTheme } = useAppTheme();
+
+  const switchMode = useCallback(
+    (theme: Theme) => {
+      // Feels smoother
+      setTimeout(() => setTheme(theme), 0.001);
+    },
+    [setTheme],
+  );
+
+  if (!isClient) {
+    return null;
+  }
+
+  return (
+    // CHECK: tamagui type bug
+    // @ts-ignore
+    <ToggleGroup type="single" disableDeactivation defaultValue={theme} onValueChange={switchMode}>
+      <ToggleGroup.Item value={Theme.SYSTEM}>
+        <Orbit />
+      </ToggleGroup.Item>
+      <ToggleGroup.Item value={Theme.LIGHT}>
+        <Sun />
+      </ToggleGroup.Item>
+      <ToggleGroup.Item value={Theme.DARK}>
+        <Moon />
+      </ToggleGroup.Item>
+    </ToggleGroup>
+  );
+};
 
 function SheetDemo() {
   const [open, setOpen] = useState(false);

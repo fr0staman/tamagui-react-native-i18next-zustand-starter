@@ -2763,6 +2763,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-async-storage/async-storage@npm:^1.22.3":
+  version: 1.22.3
+  resolution: "@react-native-async-storage/async-storage@npm:1.22.3"
+  dependencies:
+    merge-options: "npm:^3.0.4"
+  peerDependencies:
+    react-native: ^0.0.0-0 || >=0.60 <1.0
+  checksum: 10/7daa46569bdab4fc9ba0589d488704e13415ad3de1bd9613cac215529a9c970895fe0c1de59fd51514a1372c7feb6f3e340e7e90e96f96c044ab1ae64412282d
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-clean@npm:12.3.2":
   version: 12.3.2
   resolution: "@react-native-community/cli-clean@npm:12.3.2"
@@ -5942,6 +5953,7 @@ __metadata:
   resolution: "app@workspace:packages/app"
   dependencies:
     "@my/ui": "npm:0.0.1"
+    "@react-native-async-storage/async-storage": "npm:^1.22.3"
     "@tamagui/animations-react-native": "npm:^1.90.6"
     "@tamagui/colors": "npm:^1.90.6"
     "@tamagui/font-inter": "npm:^1.90.6"
@@ -5953,6 +5965,7 @@ __metadata:
     burnt: "npm:^0.12.1"
     react-native-safe-area-context: "npm:^4.8.2"
     solito: "npm:^3.0.0"
+    zustand: "npm:^4.5.1"
   languageName: unknown
   linkType: soft
 
@@ -10332,6 +10345,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-plain-obj@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-plain-obj@npm:2.1.0"
+  checksum: 10/cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
+  languageName: node
+  linkType: hard
+
 "is-plain-object@npm:^2.0.4":
   version: 2.0.4
   resolution: "is-plain-object@npm:2.0.4"
@@ -11760,6 +11780,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"merge-options@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "merge-options@npm:3.0.4"
+  dependencies:
+    is-plain-obj: "npm:^2.1.0"
+  checksum: 10/d86ddb3dd6e85d558dbf25dc944f3527b6bacb944db3fdda6e84a3f59c4e4b85231095f58b835758b9a57708342dee0f8de0dffa352974a48221487fe9f4584f
+  languageName: node
+  linkType: hard
+
 "merge-stream@npm:^2.0.0":
   version: 2.0.0
   resolution: "merge-stream@npm:2.0.0"
@@ -12307,6 +12336,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.20.0"
     "@babel/runtime": "npm:^7.20.0"
     "@my/ui": "npm:0.0.1"
+    "@react-native-async-storage/async-storage": "npm:^1.22.3"
     "@react-native/babel-preset": "npm:0.73.20"
     "@react-native/metro-config": "npm:0.73.4"
     "@react-native/typescript-config": "npm:0.73.1"
@@ -14426,18 +14456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4":
-  version: 7.5.4
-  resolution: "semver@npm:7.5.4"
-  dependencies:
-    lru-cache: "npm:^6.0.0"
-  bin:
-    semver: bin/semver.js
-  checksum: 10/985dec0d372370229a262c737063860fabd4a1c730662c1ea3200a2f649117761a42184c96df62a0e885e76fbd5dace41087d6c1ac0351b13c0df5d6bcb1b5ac
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.5.1":
+"semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.1, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4":
   version: 7.6.0
   resolution: "semver@npm:7.6.0"
   dependencies:
@@ -16536,9 +16555,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:^4.3.8":
-  version: 4.5.0
-  resolution: "zustand@npm:4.5.0"
+"zustand@npm:^4.3.8, zustand@npm:^4.5.1":
+  version: 4.5.1
+  resolution: "zustand@npm:4.5.1"
   dependencies:
     use-sync-external-store: "npm:1.2.0"
   peerDependencies:
@@ -16552,6 +16571,6 @@ __metadata:
       optional: true
     react:
       optional: true
-  checksum: 10/2488b904b3c8ced5feddfd30d8641d9d0c58c044b182b401035fdea8201c53ee84d89992cb425c365445ec315616016e2346cc1a07b1fe09f070c9da45564200
+  checksum: 10/c5dcd734ddcc393bc1febcf1811d606222c6d40cb4cf0e4d605be6cfa1855c8b09b6725ab6b73a395f1e020f8f617b605c800c1f19301b240c45d5042e1b2a10
   languageName: node
   linkType: hard

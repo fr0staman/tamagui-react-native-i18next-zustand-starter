@@ -1,15 +1,40 @@
-import { config,CustomToast, TamaguiProvider, TamaguiProviderProps, ToastProvider } from "@my/ui";
+import {
+  config,
+  CustomToast,
+  TamaguiProvider,
+  TamaguiProviderProps,
+  ToastProvider,
+  useAppTheme,
+} from "@my/ui";
 import { useColorScheme } from "react-native";
 
+import type { StoreInterface } from "../store";
+import { AppNavContainer } from "./navigation";
+import { SafeArea } from "./safe-area";
+import { StoreProvider } from "./store";
 import { ToastViewport } from "./toast";
 
+type ProviderProps = Omit<TamaguiProviderProps, "config"> & {
+  zustandProps?: StoreInterface;
+};
 
-export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, "config">) {
+export function Provider({ children, zustandProps, ...rest }: ProviderProps) {
+  return (
+    <StoreProvider {...zustandProps}>
+      <InnerProvider {...rest}>{children}</InnerProvider>
+    </StoreProvider>
+  );
+}
+
+type InnerProviderProps = Omit<TamaguiProviderProps, "config">;
+
+function InnerProvider({ children, ...rest }: InnerProviderProps) {
   const scheme = useColorScheme();
-  const theme = scheme === "dark" ? "dark" : "light";
+  const { theme } = useAppTheme();
+  const resultTheme = theme == "system" ? (scheme as typeof theme) : theme;
 
   return (
-    <TamaguiProvider config={config} defaultTheme={theme} disableInjectCSS {...rest}>
+    <TamaguiProvider config={config} defaultTheme={resultTheme} disableInjectCSS {...rest}>
       <SafeArea>
         <ToastProvider
           swipeDirection="horizontal"
@@ -21,7 +46,7 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, "conf
             ]
           }
         >
-          <AppNavContainer theme={theme}>{children}</AppNavContainer>
+          <AppNavContainer theme={resultTheme}>{children}</AppNavContainer>
 
           <CustomToast />
           <ToastViewport />

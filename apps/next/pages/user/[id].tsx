@@ -9,5 +9,7 @@ export default function Page() {
       </Head>
       <UserDetailScreen />
     </>
-  )
+  );
 }
+
+export { getServerSideProps } from "../../utils/server";

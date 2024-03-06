@@ -11,3 +11,5 @@ export default function Page() {
     </>
   );
 }
+
+export { getStaticProps } from "../utils/server";
