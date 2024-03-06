@@ -18,8 +18,8 @@ I did this to suit my needs, but I see a lot of difficulties for installation, s
 - React Native CLI
 - Next.js
 - React-navigation
+- Zustand
 - i18next (coming soon)
-- Zustand (coming soon)
 
 ## 🗂 Folder layout
 
