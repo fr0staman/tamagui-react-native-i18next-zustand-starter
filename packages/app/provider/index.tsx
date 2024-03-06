@@ -1,7 +1,8 @@
 import { config,CustomToast, TamaguiProvider, TamaguiProviderProps, ToastProvider } from "@my/ui";
 import { useColorScheme } from "react-native";
 
-import { ToastViewport } from "./ToastViewport";
+import { ToastViewport } from "./toast";
+
 
 export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, "config">) {
   const scheme = useColorScheme();
@@ -9,21 +10,23 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, "conf
 
   return (
     <TamaguiProvider config={config} defaultTheme={theme} disableInjectCSS {...rest}>
-      <ToastProvider
-        swipeDirection="horizontal"
-        duration={6000}
-        native={
-          [
-            /* uncomment the next line to do native toasts on mobile. NOTE: it'll require you making a dev build and won't work with Expo Go */
-            // 'mobile'
-          ]
-        }
-      >
-        <AppNavContainer theme={theme}>{children}</AppNavContainer>
+      <SafeArea>
+        <ToastProvider
+          swipeDirection="horizontal"
+          duration={6000}
+          native={
+            [
+              /* uncomment the next line to do native toasts on mobile. NOTE: it'll require you making a dev build and won't work with Expo Go */
+              // 'mobile'
+            ]
+          }
+        >
+          <AppNavContainer theme={theme}>{children}</AppNavContainer>
 
-        <CustomToast />
-        <ToastViewport />
-      </ToastProvider>
+          <CustomToast />
+          <ToastViewport />
+        </ToastProvider>
+      </SafeArea>
     </TamaguiProvider>
   );
 }
