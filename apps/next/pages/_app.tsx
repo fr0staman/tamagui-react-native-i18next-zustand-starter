@@ -7,7 +7,7 @@ import { NextThemeProvider, useRootTheme } from "@tamagui/next-theme";
 import { Provider } from "app/provider";
 import type { StoreInterface } from "app/store";
 import Head from "next/head";
-import React from "react";
+import { appWithTranslation } from "next-i18next";
 import type { SolitoAppProps } from "solito";
 
 type StoreProps = {
@@ -53,4 +53,4 @@ function ThemeProvider({
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

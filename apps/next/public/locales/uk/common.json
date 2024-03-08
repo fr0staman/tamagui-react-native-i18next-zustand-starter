@@ -1,0 +1,11 @@
+{
+  "welcome": "Ласкаво просимо до Tamagui.",
+  "userId": "Ідентифікатор користувача: {{id}}",
+  "linkToUser": "Користувач",
+  "sheetClosed": "Sheet закритий",
+  "sheetClosedMessage": "Просто показую, як працює Toast...",
+  "homeDescriptionFirst": "Ось базовий приклад навігації від однієї сторінки до іншої, зміни теми та мови.",
+  "homeDescriptionSecond": "Ця сторінка використовує такий же код, що й Next.js та React Native.",
+  "modifiedBy": "Модифіковано <author>{{authorOfThisExample}}</author>, <star>поставте ⭐️</star>",
+  "goHome": "На домашню"
+}

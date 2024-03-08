@@ -15,7 +15,7 @@ import { StoreProvider } from "./store";
 import { ToastViewport } from "./toast";
 
 type ProviderProps = Omit<TamaguiProviderProps, "config"> & {
-  zustandProps?: StoreInterface;
+  zustandProps?: Partial<StoreInterface>;
 };
 
 export function Provider({ children, zustandProps, ...rest }: ProviderProps) {

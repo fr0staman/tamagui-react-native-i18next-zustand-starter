@@ -5,6 +5,7 @@ import {
   Paragraph,
   Separator,
   Sheet,
+  Text,
   ToggleGroup,
   useAppTheme,
   useClient,
@@ -13,6 +14,7 @@ import {
   YStack,
 } from "@my/ui";
 import { ChevronDown, ChevronUp, Moon, Orbit, Sun } from "@tamagui/lucide-icons";
+import { Language, languageInfos, Trans, useAppTranslation, useLanguage } from "app/i18n";
 import { Theme } from "app/theme/constants";
 import { useCallback, useState } from "react";
 import { useLink } from "solito/link";
@@ -22,36 +24,43 @@ export function HomeScreen() {
     href: "/user/nate",
   });
 
+  const { t } = useAppTranslation();
+
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space>
       <YStack space="$4" bc="$background">
-        <H1 ta="center">Welcome to Tamagui.</H1>
-        <Paragraph ta="center">
-          Here&apos;s a basic starter to show navigating from one screen to another. This screen
-          uses the same code on Next.js and React Native.
-        </Paragraph>
+        <H1 ta="center">{t("welcome")}</H1>
+        <Paragraph ta="center">{t("homeDescriptionFirst")}</Paragraph>
+        <Paragraph ta="center">{t("homeDescriptionSecond")}</Paragraph>
 
         <Separator />
+
         <Paragraph ta="center">
-          Modified by{" "}
-          <Anchor color="$color12" href="https://github.com/fr0staman" target="_blank">
-            @fr0staman
-          </Anchor>
-          ,{" "}
-          <Anchor
-            color="$color12"
-            href="https://github.com/fr0staman/tamagui-react-native-i18next-zustand-starter"
-            target="_blank"
-            rel="noreferrer"
-          >
-            give it a ⭐️
-          </Anchor>
+          <Trans
+            i18nKey={"modifiedBy"}
+            t={t}
+            components={{
+              author: (
+                <Anchor color="$color12" href="https://github.com/fr0staman" target="_blank" />
+              ),
+              star: (
+                <Anchor
+                  color="$color12"
+                  href="https://github.com/fr0staman/tamagui-react-native-i18next-zustand-starter"
+                  target="_blank"
+                  rel="noreferrer"
+                />
+              ),
+            }}
+            values={{ authorOfThisExample: "@fr0staman" }}
+          />
         </Paragraph>
       </YStack>
 
       <XStack display="flex" flexDirection="row" gap={"$space.2.5"}>
-        <Button {...linkProps}>Link to user</Button>
+        <Button {...linkProps}>{t("linkToUser")}</Button>
         <ChangeThemeGroup />
+        <ChangeLangGroup />
       </XStack>
 
       <SheetDemo />
@@ -72,6 +81,7 @@ const ChangeThemeGroup = () => {
   );
 
   if (!isClient) {
+    // Partial prerendering or fake state component?
     return null;
   }
 
@@ -92,10 +102,43 @@ const ChangeThemeGroup = () => {
   );
 };
 
+const ChangeLangGroup = () => {
+  const isClient = useClient();
+  const { lang, setLang } = useLanguage();
+
+  const switchMode = useCallback(
+    (lang: Language) => {
+      // Feels smoother
+      setTimeout(() => setLang(lang), 0.001);
+    },
+    [setLang],
+  );
+
+  if (!isClient) {
+    // Partial prerendering or fake state component?
+    return null;
+  }
+
+  return (
+    // CHECK: tamagui type bug
+    // @ts-ignore
+    <ToggleGroup type="single" disableDeactivation defaultValue={lang} onValueChange={switchMode}>
+      {Object.entries(languageInfos).map(([code, info]) => {
+        return (
+          <ToggleGroup.Item key={code} value={code}>
+            <Text>{info.flag}</Text>
+          </ToggleGroup.Item>
+        );
+      })}
+    </ToggleGroup>
+  );
+};
+
 function SheetDemo() {
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState(0);
   const toast = useToastController();
+  const { t } = useAppTranslation();
 
   return (
     <>
@@ -124,8 +167,8 @@ function SheetDemo() {
             icon={ChevronDown}
             onPress={() => {
               setOpen(false);
-              toast.show("Sheet closed!", {
-                message: "Just showing how toast works...",
+              toast.show(t("sheetClosed"), {
+                message: t("sheetClosedMessage"),
               });
             }}
           />

@@ -3,18 +3,22 @@ import { createContext, useContext } from "react";
 import { create, useStore as useZustandStore } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
+import { Language } from "../i18n/languages";
 import { Theme } from "../theme/constants";
 
 export interface StoreInterface {
   lastUpdate: number;
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  lang: Language;
+  setLang: (lang: Language) => void;
   reset: () => void;
 }
 
 const getDefaultInitialState = () => ({
   lastUpdate: Date.now(),
   theme: Theme.System,
+  lang: Language.English,
 });
 
 export type StoreType = ReturnType<typeof initializeStore>;
@@ -34,13 +38,14 @@ export const useAppStore = <T>(selector: (state: StoreInterface) => T) => {
 };
 
 export const initializeStore = (preloadedState: Partial<StoreInterface> = {}) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return create(
     persist(
-      (set, get) => ({
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      (set, _get) => ({
         ...getDefaultInitialState(),
         ...preloadedState,
         setTheme: (theme) => set({ theme }),
+        setLang: (lang) => set({ lang }),
         reset: () => set(getDefaultInitialState()),
       }),
       {
