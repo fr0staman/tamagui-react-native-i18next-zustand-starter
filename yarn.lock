@@ -12481,6 +12481,7 @@ __metadata:
     eslint-config-next: "npm:^14.1.0"
     next: "npm:^14.1.0"
     next-i18next: "npm:^15.2.0"
+    next-seo: "npm:^6.5.0"
     raf: "npm:^3.4.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -12507,6 +12508,17 @@ __metadata:
     react: ">= 17.0.2"
     react-i18next: ">= 13.5.0"
   checksum: 10/f81129292c97cac2b8ef2c0ad4997bc70f8255e6fdee12b6c329a48c6d3bb74aa98e70ab46e054eff20366a4087eaa1e560c3b45b5f1c3c55f9add4a0dad8b16
+  languageName: node
+  linkType: hard
+
+"next-seo@npm:^6.5.0":
+  version: 6.5.0
+  resolution: "next-seo@npm:6.5.0"
+  peerDependencies:
+    next: ^8.1.1-canary.54 || >=9.0.0
+    react: ">=16.0.0"
+    react-dom: ">=16.0.0"
+  checksum: 10/e86e9056305379a03aeb9b4368db79870ed91dbb0e2463574f34ec2557e8257c614c006d83c5a5f19c7f91916ed6da91700de06ba491ff86ae647ab8988b354e
   languageName: node
   linkType: hard
 

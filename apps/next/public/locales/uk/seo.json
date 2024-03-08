@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "Домашня",
+    "description": "Tamagui, Solito, Zustand, i18next, React Native & Next.js"
+  },
+  "user": {
+    "title": "Користувач: {{id}}",
+    "description": "Просто користувач з ID: {{id}}"
+  }
+}

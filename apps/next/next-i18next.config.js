@@ -4,5 +4,5 @@ module.exports = {
     locales: ["en", "uk"],
   },
   defaultNS: "common",
-  ns: ["common"],
+  ns: ["common", "seo"],
 };

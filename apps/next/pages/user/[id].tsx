@@ -1,12 +1,17 @@
 import { UserDetailScreen } from "app/features/user/detail-screen";
-import Head from "next/head";
+import { useAppTranslation } from "app/i18n";
+import { NextSeo } from "next-seo";
 
-export default function Page() {
+type PageProps = {
+  params: { id: string };
+};
+
+export default function Page({ params: { id } }: PageProps) {
+  const { t } = useAppTranslation("seo");
+
   return (
     <>
-      <Head>
-        <title>User</title>
-      </Head>
+      <NextSeo title={t("user.title", { id })} description={t("user.description", { id })} />
       <UserDetailScreen />
     </>
   );

@@ -1,12 +1,13 @@
 import { HomeScreen } from "app/features/home/screen";
-import Head from "next/head";
+import { useAppTranslation } from "app/i18n";
+import { NextSeo } from "next-seo";
 
 export default function Page() {
+  const { t } = useAppTranslation("seo");
+
   return (
     <>
-      <Head>
-        <title>Home</title>
-      </Head>
+      <NextSeo title={t("home.title")} description={t("home.description")} />
       <HomeScreen />
     </>
   );
