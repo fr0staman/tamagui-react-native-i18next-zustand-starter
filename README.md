@@ -19,7 +19,7 @@ I did this to suit my needs, but I see a lot of difficulties for installation, s
 - Next.js
 - React-navigation
 - Zustand
-- i18next (coming soon)
+- i18next
 
 ## 🗂 Folder layout
 
