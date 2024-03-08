@@ -14,7 +14,7 @@ export interface StoreInterface {
 
 const getDefaultInitialState = () => ({
   lastUpdate: Date.now(),
-  theme: Theme.SYSTEM,
+  theme: Theme.System,
 });
 
 export type StoreType = ReturnType<typeof initializeStore>;

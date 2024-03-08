@@ -79,13 +79,13 @@ const ChangeThemeGroup = () => {
     // CHECK: tamagui type bug
     // @ts-ignore
     <ToggleGroup type="single" disableDeactivation defaultValue={theme} onValueChange={switchMode}>
-      <ToggleGroup.Item value={Theme.SYSTEM}>
+      <ToggleGroup.Item value={Theme.System}>
         <Orbit />
       </ToggleGroup.Item>
-      <ToggleGroup.Item value={Theme.LIGHT}>
+      <ToggleGroup.Item value={Theme.Light}>
         <Sun />
       </ToggleGroup.Item>
-      <ToggleGroup.Item value={Theme.DARK}>
+      <ToggleGroup.Item value={Theme.Dark}>
         <Moon />
       </ToggleGroup.Item>
     </ToggleGroup>
