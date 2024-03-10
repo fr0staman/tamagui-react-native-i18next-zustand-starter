@@ -103,7 +103,6 @@ const ChangeThemeGroup = () => {
 };
 
 const ChangeLangGroup = () => {
-  const isClient = useClient();
   const { lang, setLang } = useLanguage();
 
   const switchMode = useCallback(
@@ -113,11 +112,6 @@ const ChangeLangGroup = () => {
     },
     [setLang],
   );
-
-  if (!isClient) {
-    // Partial prerendering or fake state component?
-    return null;
-  }
 
   return (
     // CHECK: tamagui type bug

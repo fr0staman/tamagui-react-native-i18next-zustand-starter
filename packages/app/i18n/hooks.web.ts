@@ -18,10 +18,10 @@ export function useLanguage(): UseLanguageResult {
   const router = useRouter();
 
   const { i18n } = useAppTranslation();
-  const { lang, setLang } = useAppStore(({ lang, setLang }) => ({ lang, setLang }));
+  const { setLang } = useAppStore(({ setLang }) => ({ setLang }));
 
   return {
-    lang,
+    lang: i18n.language as Language,
     setLang: (localeCode) => {
       i18n.changeLanguage(localeCode);
       setLang(localeCode);
