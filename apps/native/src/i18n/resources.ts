@@ -8,9 +8,11 @@
  */
 
 import en_common from "apps/next/public/locales/en/common.json";
+import en_seo from "apps/next/public/locales/en/seo.json";
 import uk_common from "apps/next/public/locales/uk/common.json";
+import uk_seo from "apps/next/public/locales/uk/seo.json";
 
 export const resources = {
-  en: { common: en_common },
-  uk: { common: uk_common },
+  en: { seo: en_seo, common: en_common },
+  uk: { seo: uk_seo, common: uk_common },
 };

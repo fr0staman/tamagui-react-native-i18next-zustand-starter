@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeScreen } from "app/features/home/screen";
 import { UserDetailScreen } from "app/features/user/detail-screen";
 
+import { useAppTranslation } from "../i18n";
+
 const Stack = createNativeStackNavigator<{
   home: undefined;
   user: {
@@ -11,13 +13,14 @@ const Stack = createNativeStackNavigator<{
 }>();
 
 export function AppStack() {
+  const { t } = useAppTranslation("seo");
+
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="home"
         component={HomeScreen}
         options={{
-          title: "Home",
           headerShown: false,
         }}
       />
@@ -25,7 +28,7 @@ export function AppStack() {
         name="user"
         component={UserDetailScreen}
         options={(props) => ({
-          title: props.route.params.id,
+          title: t("user.title", { id: props.route.params.id }),
         })}
       />
     </Stack.Navigator>
