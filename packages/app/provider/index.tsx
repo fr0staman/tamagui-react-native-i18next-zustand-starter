@@ -8,27 +8,13 @@ import {
 } from "@my/ui";
 import { useColorScheme } from "react-native";
 
-import type { StoreInterface } from "../store";
 import { AppNavContainer } from "./navigation";
 import { SafeArea } from "./safe-area";
-import { StoreProvider } from "./store";
 import { ToastViewport } from "./toast";
-
-type ProviderProps = Omit<TamaguiProviderProps, "config"> & {
-  zustandProps?: Partial<StoreInterface>;
-};
-
-export function Provider({ children, zustandProps, ...rest }: ProviderProps) {
-  return (
-    <StoreProvider {...zustandProps}>
-      <InnerProvider {...rest}>{children}</InnerProvider>
-    </StoreProvider>
-  );
-}
 
 type InnerProviderProps = Omit<TamaguiProviderProps, "config">;
 
-function InnerProvider({ children, ...rest }: InnerProviderProps) {
+export const Provider = ({ children, ...rest }: InnerProviderProps) => {
   const scheme = useColorScheme();
   const { theme } = useAppTheme();
   const resultTheme = theme == "system" ? (scheme as typeof theme) : theme;
@@ -54,4 +40,4 @@ function InnerProvider({ children, ...rest }: InnerProviderProps) {
       </SafeArea>
     </TamaguiProvider>
   );
-}
+};
