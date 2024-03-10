@@ -119,7 +119,7 @@ const ChangeLangGroup = () => {
     <ToggleGroup type="single" disableDeactivation defaultValue={lang} onValueChange={switchMode}>
       {Object.entries(languageInfos).map(([code, info]) => {
         return (
-          <ToggleGroup.Item key={code} value={code}>
+          <ToggleGroup.Item key={code} value={code} disablePassStyles>
             <Text>{info.flag}</Text>
           </ToggleGroup.Item>
         );
