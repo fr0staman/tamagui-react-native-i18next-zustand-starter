@@ -18,6 +18,7 @@
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:react-native/all",
     "plugin:@typescript-eslint/recommended"
   ],
