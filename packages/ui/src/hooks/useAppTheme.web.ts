@@ -3,7 +3,9 @@ import { useAppStore } from "app/store";
 
 export const useAppTheme = () => {
   const { current, set: setNextTheme } = useThemeSetting();
-  const { theme, setTheme } = useAppStore(({ theme, setTheme }) => ({ theme, setTheme }));
+
+  const theme = useAppStore((state) => state.theme);
+  const setTheme = useAppStore((state) => state.setTheme);
 
   return {
     theme: current || theme,

@@ -14,7 +14,9 @@ type UseLanguageResult = {
 
 export function useLanguage(): UseLanguageResult {
   const { i18n } = useAppTranslation();
-  const { lang, setLang } = useAppStore(({ lang, setLang }) => ({ lang, setLang }));
+
+  const lang = useAppStore((state) => state.lang);
+  const setLang = useAppStore((state) => state.setLang);
 
   return {
     lang,

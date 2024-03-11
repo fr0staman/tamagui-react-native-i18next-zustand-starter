@@ -18,16 +18,16 @@ export function useLanguage(): UseLanguageResult {
   const router = useRouter();
 
   const { i18n } = useAppTranslation();
-  const { setLang } = useAppStore(({ setLang }) => ({ setLang }));
+  const setLang = useAppStore((state) => state.setLang);
 
   return {
     lang: i18n.language as Language,
     setLang: (localeCode) => {
-      i18n.changeLanguage(localeCode);
-      setLang(localeCode);
       const { pathname, asPath, query } = router;
       const aYearFromNow = new Date();
       aYearFromNow.setFullYear(aYearFromNow.getFullYear() + 1);
+      i18n.changeLanguage(localeCode);
+      setLang(localeCode);
       // Keep user choice for Next by special cookie
       // https://nextjs.org/docs/pages/building-your-application/routing/internationalization#leveraging-the-next_locale-cookie
       setCookie("NEXT_LOCALE", localeCode, { expires: aYearFromNow });
