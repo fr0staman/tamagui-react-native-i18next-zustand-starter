@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
 const { withTamagui } = require("@tamagui/next-plugin");
+const withBundleAnalyzer = require("@next/bundle-analyzer");
 const { join } = require("path");
 const { i18n } = require("./next-i18next.config");
 
@@ -34,6 +35,9 @@ Remove this log in next.config.js.
 `);
 
 const plugins = [
+  withBundleAnalyzer({
+    enabled: process.env.ANALYZE === "true",
+  }),
   withTamagui({
     config: "../../packages/config/src/tamagui.config.ts",
     components: ["tamagui", "@my/ui"],
