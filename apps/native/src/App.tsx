@@ -26,6 +26,7 @@ function StateUpdater() {
   return (
     <>
       <StatusBar
+        translucent
         backgroundColor="transparent"
         barStyle={theme === Theme.Dark ? "light-content" : "dark-content"}
       />

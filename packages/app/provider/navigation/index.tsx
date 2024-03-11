@@ -1,4 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
+import { Theme } from "app/theme/constants";
 import {
   TamaguiNavigationDarkTheme,
   TamaguiNavigationDefaultTheme,
@@ -7,7 +8,7 @@ import { useMemo } from "react";
 
 type AppNavContainerProps = {
   children: React.ReactNode;
-  theme?: string;
+  theme?: Theme;
 };
 
 export const AppNavContainer = ({ children, theme }: AppNavContainerProps) => {
@@ -26,7 +27,7 @@ export const AppNavContainer = ({ children, theme }: AppNavContainerProps) => {
         }),
         [],
       )}
-      theme={theme === "dark" ? TamaguiNavigationDarkTheme : TamaguiNavigationDefaultTheme}
+      theme={theme === Theme.Dark ? TamaguiNavigationDarkTheme : TamaguiNavigationDefaultTheme}
     >
       {children}
     </NavigationContainer>

@@ -1,42 +1,32 @@
-import {
-  config,
-  CustomToast,
-  TamaguiProvider,
-  TamaguiProviderProps,
-  ToastProvider,
-  useAppTheme,
-} from "@my/ui";
-import { useColorScheme } from "react-native";
+import { config, CustomToast, TamaguiProvider, TamaguiProviderProps, ToastProvider } from "@my/ui";
 
-import { AppNavContainer } from "./navigation";
+import { ThemeListener } from "./listener/theme";
 import { SafeArea } from "./safe-area";
 import { ToastViewport } from "./toast";
 
 type InnerProviderProps = Omit<TamaguiProviderProps, "config">;
 
 export const Provider = ({ children, ...rest }: InnerProviderProps) => {
-  const scheme = useColorScheme();
-  const { theme } = useAppTheme();
-  const resultTheme = theme == "system" ? (scheme as typeof theme) : theme;
-
   return (
-    <TamaguiProvider config={config} defaultTheme={resultTheme} disableInjectCSS {...rest}>
+    <TamaguiProvider config={config} disableInjectCSS {...rest}>
       <SafeArea>
-        <ToastProvider
-          swipeDirection="horizontal"
-          duration={6000}
-          native={
-            [
-              /* uncomment the next line to do native toasts on mobile. NOTE: it'll require you making a dev build and won't work with Expo Go */
-              // 'mobile'
-            ]
-          }
-        >
-          <AppNavContainer theme={resultTheme}>{children}</AppNavContainer>
+        <ThemeListener>
+          <ToastProvider
+            swipeDirection="horizontal"
+            duration={6000}
+            native={
+              [
+                /* uncomment the next line to do native toasts on mobile. NOTE: it'll require you making a dev build and won't work with Expo Go */
+                // 'mobile'
+              ]
+            }
+          >
+            {children}
 
-          <CustomToast />
-          <ToastViewport />
-        </ToastProvider>
+            <CustomToast />
+            <ToastViewport />
+          </ToastProvider>
+        </ThemeListener>
       </SafeArea>
     </TamaguiProvider>
   );
