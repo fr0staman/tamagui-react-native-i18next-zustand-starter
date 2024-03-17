@@ -14,9 +14,9 @@ import {
   YStack,
 } from "@my/ui";
 import { ChevronDown, ChevronUp, Moon, Orbit, Sun } from "@tamagui/lucide-icons";
-import { Language, languageInfos, Trans, useAppTranslation, useLanguage } from "app/i18n";
+import { languageInfos, Trans, useAppTranslation, useLanguage } from "app/i18n";
 import { Theme } from "app/theme/constants";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { useLink } from "solito/link";
 
 export function HomeScreen() {
@@ -72,13 +72,8 @@ const ChangeThemeGroup = () => {
   const isClient = useClient();
   const { theme, setTheme } = useAppTheme();
 
-  const switchMode = useCallback(
-    (theme: Theme) => {
-      // Feels smoother
-      setTimeout(() => setTheme(theme), 0.001);
-    },
-    [setTheme],
-  );
+  // Feels smoother
+  const switchMode = (theme: Theme) => setTimeout(() => setTheme(theme), 0.001);
 
   if (!isClient) {
     // Partial prerendering or fake state component?
@@ -105,13 +100,8 @@ const ChangeThemeGroup = () => {
 const ChangeLangGroup = () => {
   const { lang, setLang } = useLanguage();
 
-  const switchMode = useCallback(
-    (lang: Language) => {
-      // Feels smoother
-      setTimeout(() => setLang(lang), 0.001);
-    },
-    [setLang],
-  );
+  // Feels smoother
+  const switchMode = (lang) => setTimeout(() => setLang(lang), 0.001);
 
   return (
     // CHECK: tamagui type bug
