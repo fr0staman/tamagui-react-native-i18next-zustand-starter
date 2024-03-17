@@ -19,7 +19,7 @@ type Actions = {
   reset: () => void;
 };
 
-const initialState = {
+export const initialState = {
   theme: Theme.System,
   lang: Language.English,
   userChangedSettings: false,

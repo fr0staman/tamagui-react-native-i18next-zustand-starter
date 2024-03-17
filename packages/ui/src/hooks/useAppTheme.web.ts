@@ -1,17 +1,20 @@
 import { useThemeSetting } from "@tamagui/next-theme";
-import { useAppStore } from "app/store";
+import { initialState, useAppStore } from "app/store";
 
 export const useAppTheme = () => {
   const { current, set: setNextTheme } = useThemeSetting();
 
-  const theme = useAppStore((state) => state.theme);
   const setTheme = useAppStore((state) => state.setTheme);
 
   return {
-    theme: current || theme,
+    // Next theme is undefined if rendered on server.
+    // But, in client, I dont wan't to subscribe store theme update,
+    // so I'll just put initial store state theme.
+    // And this way we avoid unnecessary rendering on theme change.
+    theme: current || initialState.theme,
     setTheme: (newTheme: Parameters<typeof setTheme>[0]) => {
-      setNextTheme(newTheme);
       setTheme(newTheme);
+      setNextTheme(newTheme);
     },
   };
 };
