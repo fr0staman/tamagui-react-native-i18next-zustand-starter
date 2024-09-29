@@ -15,7 +15,7 @@ type InnerProviderProps = Omit<TamaguiProviderProps, "config">;
 
 export const Provider = ({ children, ...rest }: InnerProviderProps) => {
   return (
-    <TamaguiProvider config={config} disableInjectCSS {...rest}>
+    <TamaguiProvider config={config} {...rest}>
       <SafeArea>
         <ThemeListener>
           <ToastProvider
