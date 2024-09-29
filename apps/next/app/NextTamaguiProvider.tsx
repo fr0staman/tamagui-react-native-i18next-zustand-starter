@@ -21,6 +21,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
     return (
       <>
         <style dangerouslySetInnerHTML={{ __html: rnwStyle.textContent }} id={rnwStyle.id} />
+
         <style
           dangerouslySetInnerHTML={{
             // the first time this runs you'll get the full CSS including all themes
@@ -28,6 +29,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
             __html: config.getNewCSS(),
           }}
         />
+
         <style
           dangerouslySetInnerHTML={{
             __html: config.getCSS({
@@ -37,6 +39,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
             }),
           }}
         />
+
         <script
           dangerouslySetInnerHTML={{
             // avoid flash of animated things on enter:
@@ -44,7 +47,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
           }}
         />
         {/* eslint-disable-next-line react/no-unknown-property */}
-        <style global jsx>{`
+        <style jsx global>{`
           html {
             font-family: "Inter";
           }
