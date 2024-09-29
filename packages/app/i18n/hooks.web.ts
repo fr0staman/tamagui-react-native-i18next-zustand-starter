@@ -1,6 +1,6 @@
 import { useAppStore } from "app/store";
 import { setCookie } from "cookies-next";
-import { useRouter } from "next/router";
+import { useRouter } from "next/compat/router";
 import { useTranslation } from "next-i18next";
 
 import { Language } from "./languages";
@@ -20,9 +20,9 @@ export function useLanguage(): UseLanguageResult {
   const setLang = useAppStore((state) => state.setLang);
 
   return {
-    lang: (router.locale || Language.English) as Language,
+    lang: (router?.locale || Language.English) as Language,
     setLang: (locale) => {
-      const { pathname, asPath, query } = router;
+      const { pathname, asPath, query } = router!;
       const aYearFromNow = new Date();
       aYearFromNow.setFullYear(aYearFromNow.getFullYear() + 1);
       // Keep user choice for Next by special cookie
@@ -30,7 +30,7 @@ export function useLanguage(): UseLanguageResult {
       setCookie("NEXT_LOCALE", locale, { expires: aYearFromNow });
       setLang(locale);
 
-      router.push({ pathname, query }, asPath, { locale });
+      router?.push({ pathname, query }, asPath, { locale });
     },
   };
 }

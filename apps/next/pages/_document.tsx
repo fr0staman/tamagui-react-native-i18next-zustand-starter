@@ -32,6 +32,12 @@ export default class Document extends NextDocument {
           }),
         }}
       />,
+      // eslint-disable-next-line react/no-unknown-property, react/jsx-key, @next/next/no-styled-jsx-in-document
+      <style jsx global>{`
+        html {
+          font-family: "Inter";
+        }
+      `}</style>,
     ];
 
     return { ...page, styles: Children.toArray(styles) };
