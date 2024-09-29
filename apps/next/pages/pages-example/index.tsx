@@ -8,9 +8,9 @@ export default function Page() {
   return (
     <>
       <NextSeo title={t("home.title")} description={t("home.description")} />
-      <HomeScreen />
+      <HomeScreen pagesMode={true} />
     </>
   );
 }
 
-export { getStaticProps } from "../utils/server";
+export { getStaticProps } from "../../utils/server";

@@ -1,10 +1,10 @@
-import { animations } from "@my/ui/src/animations";
-import { createInterFont } from "@tamagui/font-inter";
-import { createMedia } from "@tamagui/react-native-media-driver";
-import { shorthands } from "@tamagui/shorthands";
-import { tokens } from "@tamagui/themes/v2";
-import { themes } from "@tamagui/themes/v2-themes";
 import { createTamagui } from "tamagui";
+import { createInterFont } from "@tamagui/font-inter";
+import { shorthands } from "@tamagui/shorthands";
+import { tokens, themes } from "@tamagui/config/v3";
+import { createMedia } from "@tamagui/react-native-media-driver";
+
+import { animations } from "@my/ui/src/animations";
 
 const headingFont = createInterFont({
   size: {

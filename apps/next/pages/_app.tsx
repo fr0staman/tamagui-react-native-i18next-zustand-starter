@@ -17,7 +17,18 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
   return (
     <>
       <Head>
+        <title>Tamagui • Pages Router</title>
+        <meta
+          name="description"
+          content="Tamagui, Solito, Zustand, i18next, React Native & Next.js"
+        />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          dangerouslySetInnerHTML={{
+            // avoid flash of animated things on enter:
+            __html: "document.documentElement.classList.add('t_unmounted')",
+          }}
+        />
       </Head>
       <ThemeProvider>
         <Component {...pageProps} />
@@ -33,7 +44,7 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     <NextThemeProvider onChangeTheme={setTheme as any}>
-      <Provider disableRootThemeClass defaultTheme={theme}>
+      <Provider disableRootThemeClass disableInjectCSS defaultTheme={theme}>
         {children}
       </Provider>
     </NextThemeProvider>
