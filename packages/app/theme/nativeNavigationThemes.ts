@@ -6,7 +6,7 @@ export const TamaguiNavigationDefaultTheme = {
   colors: {
     primary: config.themes.light.blue9.val,
     background: config.themes.light.background.val,
-    card: config.themes.light.backgroundStrong.val,
+    card: config.themes.light.color1.val,
     text: config.themes.light.color.val,
     border: config.themes.light.borderColor.val,
     notification: config.themes.light.red9.val,
@@ -18,7 +18,7 @@ export const TamaguiNavigationDarkTheme = {
   colors: {
     primary: config.themes.dark.blue9.val,
     background: config.themes.dark.background.val,
-    card: config.themes.dark.backgroundStrong.val,
+    card: config.themes.dark.color1.val,
     text: config.themes.dark.color.val,
     border: config.themes.dark.borderColor.val,
     notification: config.themes.light.red9.val,
