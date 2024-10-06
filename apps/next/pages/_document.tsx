@@ -1,8 +1,8 @@
 import { config } from "@my/ui";
 import { Language } from "app/i18n";
 import NextDocument, {
-  DocumentContext,
-  DocumentInitialProps,
+  type DocumentContext,
+  type DocumentInitialProps,
   Head,
   Html,
   Main,
@@ -32,8 +32,8 @@ export default class Document extends NextDocument {
           }),
         }}
       />,
-      // eslint-disable-next-line react/no-unknown-property, react/jsx-key, @next/next/no-styled-jsx-in-document
-      <style jsx global>{`
+      /* eslint-disable-next-line react/no-unknown-property, react/jsx-key, @next/next/no-styled-jsx-in-document */
+      <style jsx global key="tamagui-css">{`
         html {
           font-family: "Inter";
         }

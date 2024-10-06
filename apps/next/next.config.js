@@ -54,7 +54,7 @@ const plugins = [
   }),
 ];
 
-module.exports = function () {
+module.exports = () => {
   /** @type {import('next').NextConfig} */
   let config = {
     typescript: {
