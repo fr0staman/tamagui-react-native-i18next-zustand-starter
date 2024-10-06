@@ -1,5 +1,5 @@
-import { HomeScreen } from "app/features/home/screen";
 import { useAppTranslation } from "app/i18n";
+import { HomeScreen } from "app/pages/home";
 import { NextSeo } from "next-seo";
 
 export default function Page() {
@@ -13,4 +13,4 @@ export default function Page() {
   );
 }
 
-export { getStaticProps } from "../../utils/server";
+export { getStaticPaths, getStaticProps } from "../../../utils/server";

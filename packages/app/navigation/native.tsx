@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreen } from "app/features/home/screen";
-import { UserDetailScreen } from "app/features/user/detail-screen";
+import { HomeScreen } from "app/pages/home";
+import { UserDetailScreen } from "app/pages/user";
 
 import { useAppTranslation } from "../i18n";
 

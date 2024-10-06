@@ -1,36 +1,47 @@
-import { Language } from "app/i18n";
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import nextI18nConfig from "../next-i18next.config";
 
-export const getServerSideProps: GetServerSideProps = async ({
-  locale = Language.English,
-  params,
-}) => {
-  const supportedLocales = Object.values(Language);
-  const chosenLocale = supportedLocales.includes(locale as Language)
-    ? locale
-    : nextI18nConfig.i18n.defaultLocale;
+type StandardParams = {
+  locale: (typeof nextI18nConfig.i18n.locales)[number];
+};
+
+export const getServerSideProps: GetServerSideProps<object, StandardParams> = async (context) => {
+  const lng = context.params?.locale || nextI18nConfig.i18n.defaultLocale;
 
   return {
     props: {
-      ...(await serverSideTranslations(chosenLocale, nextI18nConfig.ns)),
-      params,
+      ...(await serverSideTranslations(lng, nextI18nConfig.ns)),
+      params: context.params,
     },
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale = Language.English }) => {
-  const supportedLocales = Object.values(Language);
-
-  const chosenLocale = supportedLocales.includes(locale as Language)
-    ? locale
-    : nextI18nConfig.i18n.defaultLocale;
+export const getStaticProps: GetStaticProps<object, StandardParams> = async (context) => {
+  const lng = context.params?.locale || nextI18nConfig.i18n.defaultLocale;
 
   return {
     props: {
-      ...(await serverSideTranslations(chosenLocale, nextI18nConfig.ns)),
+      ...(await serverSideTranslations(lng, nextI18nConfig.ns)),
     },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths<StandardParams> = async () => {
+  return {
+    paths: [
+      {
+        params: {
+          locale: "en",
+        },
+      },
+      {
+        params: {
+          locale: "uk",
+        },
+      },
+    ],
+    fallback: false,
   };
 };

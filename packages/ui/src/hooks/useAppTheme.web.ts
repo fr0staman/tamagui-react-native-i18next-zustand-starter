@@ -1,10 +1,16 @@
 import { useThemeSetting } from "@tamagui/next-theme";
 import { initialState, useAppStore } from "app/store";
+import { Theme } from "app/theme/constants";
 
 export const useAppTheme = () => {
   const { current, set: setNextTheme } = useThemeSetting();
 
-  const setTheme = useAppStore((state) => state.setTheme);
+  const setStoreTheme = useAppStore((state) => state.setTheme);
+
+  function setTheme(newTheme: Theme) {
+    setStoreTheme(newTheme);
+    setNextTheme(newTheme);
+  }
 
   return {
     // Next theme is undefined if rendered on server.
@@ -12,9 +18,12 @@ export const useAppTheme = () => {
     // so I'll just put initial store state theme.
     // And this way we avoid unnecessary rendering on theme change.
     theme: current || initialState.theme,
-    setTheme: (newTheme: Parameters<typeof setTheme>[0]) => {
-      setTheme(newTheme);
-      setNextTheme(newTheme);
+    setTheme,
+    toggle() {
+      const themes = Object.values(Theme);
+      const next =
+        themes[(themes.indexOf((current || initialState.theme) as Theme) + 1) % themes.length];
+      setTheme(next);
     },
   };
 };

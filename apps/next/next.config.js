@@ -3,7 +3,6 @@
 const { withTamagui } = require("@tamagui/next-plugin");
 const withBundleAnalyzer = require("@next/bundle-analyzer");
 const { join } = require("path");
-const { i18n } = require("./next-i18next.config");
 
 const boolVals = {
   true: true,
@@ -58,7 +57,6 @@ const plugins = [
 module.exports = function () {
   /** @type {import('next').NextConfig} */
   let config = {
-    i18n,
     typescript: {
       ignoreBuildErrors: true,
     },

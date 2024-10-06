@@ -1,26 +1,25 @@
+"use client";
+
 import {
   Anchor,
   Button,
   H1,
+  isWeb,
   Paragraph,
   Separator,
   Sheet,
-  SwitchRouterButton,
-  SwitchThemeButton,
-  Text,
-  ToggleGroup,
-  useAppTheme,
-  useClient,
   useToastController,
   XStack,
   YStack,
 } from "@my/ui";
-import { ChevronDown, ChevronUp, Moon, Orbit, Sun } from "@tamagui/lucide-icons";
-import { languageInfos, Trans, useAppTranslation, useLanguage } from "app/i18n";
-import { Theme } from "app/theme/constants";
+import { ChevronDown, ChevronUp } from "@tamagui/lucide-icons";
+import { Trans, useAppTranslation } from "app/i18n";
 import { useState } from "react";
-import { Platform } from "react-native";
 import { useLink } from "solito/navigation";
+
+import { SwitchLangButton } from "../features/SwitchLangButton";
+import { SwitchRouterButton } from "../features/SwitchRouterButton";
+import { SwitchThemeButton } from "../features/SwitchThemeButton";
 
 export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
   const { t } = useAppTranslation();
@@ -41,12 +40,9 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
         fw="wrap"
         $sm={{ pos: "relative", t: 0 }}
       >
-        {Platform.OS === "web" && (
-          <>
-            <SwitchRouterButton pagesMode={pagesMode} />
-            <SwitchThemeButton />
-          </>
-        )}
+        {isWeb && <SwitchRouterButton pagesMode={pagesMode} />}
+        <SwitchThemeButton />
+        <SwitchLangButton />
       </XStack>
       <YStack gap="$4" bc="$background">
         <H1 ta="center" col="$color12">
@@ -65,64 +61,12 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
 
       <XStack display="flex" flexDirection="row" gap={"$space.2.5"}>
         <Button {...linkProps}>{t("linkToUser")}</Button>
-        <ChangeThemeGroup />
-        <ChangeLangGroup />
       </XStack>
 
       <SheetDemo />
     </YStack>
   );
 }
-
-const ChangeThemeGroup = () => {
-  const isClient = useClient();
-  const { theme, setTheme } = useAppTheme();
-
-  // Feels smoother
-  const switchMode = (theme: Theme) => setTimeout(() => setTheme(theme), 0.001);
-
-  if (!isClient) {
-    // Partial prerendering or fake state component?
-    return null;
-  }
-
-  return (
-    // CHECK: tamagui type bug
-    // @ts-ignore
-    <ToggleGroup type="single" disableDeactivation defaultValue={theme} onValueChange={switchMode}>
-      <ToggleGroup.Item value={Theme.System}>
-        <Orbit />
-      </ToggleGroup.Item>
-      <ToggleGroup.Item value={Theme.Light}>
-        <Sun />
-      </ToggleGroup.Item>
-      <ToggleGroup.Item value={Theme.Dark}>
-        <Moon />
-      </ToggleGroup.Item>
-    </ToggleGroup>
-  );
-};
-
-const ChangeLangGroup = () => {
-  const { lang, setLang } = useLanguage();
-
-  // Feels smoother
-  const switchMode = (lang) => setTimeout(() => setLang(lang), 0.001);
-
-  return (
-    // CHECK: tamagui type bug
-    // @ts-ignore
-    <ToggleGroup type="single" disableDeactivation defaultValue={lang} onValueChange={switchMode}>
-      {Object.entries(languageInfos).map(([code, info]) => {
-        return (
-          <ToggleGroup.Item key={code} value={code}>
-            <Text>{info.flag}</Text>
-          </ToggleGroup.Item>
-        );
-      })}
-    </ToggleGroup>
-  );
-};
 
 function SheetDemo() {
   const { t } = useAppTranslation();

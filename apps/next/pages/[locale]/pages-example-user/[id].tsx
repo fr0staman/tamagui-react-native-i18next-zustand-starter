@@ -1,5 +1,5 @@
-import { UserDetailScreen } from "app/features/user/detail-screen";
 import { useAppTranslation } from "app/i18n";
+import { UserDetailScreen } from "app/pages/user";
 import { NextSeo } from "next-seo";
 
 type PageProps = {
@@ -17,4 +17,4 @@ export default function Page({ params: { id } }: PageProps) {
   );
 }
 
-export { getServerSideProps } from "../../utils/server";
+export { getServerSideProps } from "../../../utils/server";

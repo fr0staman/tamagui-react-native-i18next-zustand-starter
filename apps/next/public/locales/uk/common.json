@@ -7,5 +7,8 @@
   "homeDescriptionFirst": "Ось базовий приклад навігації від однієї сторінки до іншої, зміни теми та мови.",
   "homeDescriptionSecond": "Ця сторінка використовує такий же код, що й Next.js та React Native.",
   "modifiedBy": "Модифіковано <author>{{authorOfThisExample}}</author>, <star>поставте ⭐️</star>",
-  "goHome": "На домашню"
+  "goHome": "На домашню",
+  "changeRouter": "Змінити роутер: {{router}}",
+  "changeTheme": "Змінити тему: {{theme}}",
+  "changeLanguage": "Змінити мову: {{lang}}"
 }

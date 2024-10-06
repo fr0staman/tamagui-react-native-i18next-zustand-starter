@@ -7,5 +7,8 @@
   "homeDescriptionFirst": "Here's a basic starter to show navigating from one screen to another, changing theme and language.",
   "homeDescriptionSecond": "This screen uses the same code on Next.js and React Native.",
   "modifiedBy": "Modified by <author>{{authorOfThisExample}}</author>, <star>give it a ⭐️</star>",
-  "goHome": "Go Home"
+  "goHome": "Go Home",
+  "changeRouter": "Change router: {{router}}",
+  "changeTheme": "Change theme: {{theme}}",
+  "changeLanguage": "Change language: {{lang}}"
 }
