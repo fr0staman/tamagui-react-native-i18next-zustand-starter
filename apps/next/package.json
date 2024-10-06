@@ -11,11 +11,12 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@tamagui/config": "1.112.4",
-    "@tamagui/next-theme": "^1.112.5",
+    "@tamagui/config": "1.112.22",
+    "@tamagui/next-theme": "^1.112.22",
     "app": "0.0.0",
     "i18next-resources-to-backend": "^1.2.1",
-    "next": "^14.2.13",
+    "mini-css-extract-plugin": "^2.9.1",
+    "next": "^14.2.14",
     "next-i18next": "^15.2.0",
     "next-intl": "^3.20.0",
     "next-seo": "^6.5.0",
@@ -25,16 +26,17 @@
     "react-native": "0.75.3",
     "react-native-web": "~0.19.12",
     "react-native-web-lite": "^1.112.4",
-    "tamagui": "^1.112.5",
+    "tamagui": "^1.112.22",
     "vercel": "latest"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.2.13",
-    "@next/eslint-plugin-next": "^14.2.13",
-    "@tamagui/next-plugin": "^1.112.4",
+    "@next/bundle-analyzer": "^14.2.14",
+    "@next/eslint-plugin-next": "^14.2.14",
+    "@tamagui/next-plugin": "^1.112.22",
     "@types/node": "^20.14.1",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^10.0.1",
+    "tree-kill": "^1.2.2",
     "vitest": "^2.1.1"
   }
 }

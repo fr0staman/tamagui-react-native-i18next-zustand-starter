@@ -47,7 +47,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
           }}
         />
         {/* eslint-disable-next-line react/no-unknown-property */}
-        <style jsx global>{`
+        <style jsx global key="tamagui-css">{`
           html {
             font-family: "Inter";
           }
