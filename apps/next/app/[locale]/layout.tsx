@@ -6,7 +6,7 @@ import i18nConfig from "../../next-i18next.config";
 
 export const metadata: Metadata = {
   title: "Tamagui • App Router",
-  description: "Tamagui, Solito, Expo & Next.js",
+  description: "Tamagui, Solito, Zustand, i18next, React Native & Next.js",
   icons: "/favicon.ico",
 };
 

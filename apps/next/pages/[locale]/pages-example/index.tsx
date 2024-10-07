@@ -7,7 +7,7 @@ export default function Page() {
 
   return (
     <>
-      <NextSeo title={t("home.title")} description={t("home.description")} />
+      <NextSeo title={t("home.title", { router: "Pages" })} description={t("home.description")} />
       <HomeScreen pagesMode={true} />
     </>
   );

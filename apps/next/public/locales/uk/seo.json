@@ -1,6 +1,6 @@
 {
   "home": {
-    "title": "Домашня",
+    "title": "Домашня • {{router}} Роутер",
     "description": "Tamagui, Solito, Zustand, i18next, React Native & Next.js"
   },
   "user": {
