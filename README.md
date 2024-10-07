@@ -1,4 +1,4 @@
-# Tamagui + Next + Solito + i18next + Zustand Monorepo
+# Tamagui + Solito + i18next + Zustand + Next + React Native Monorepo
 <div align="center">
   <i>unofficial, made by <a href="https://github.com/fr0staman">@fr0staman</a></i>
 </div>
@@ -8,6 +8,8 @@
 This monorepo is a starter, example for an React Native CLI + Next.js + Tamagui + Solito + i18next + Zustand app.
 
 This is a fork from <a href="https://github.com/tamagui/starter-free">official tamagui template</a>.
+
+App and Pages Router with `i18next` simultaneosly!
 
 I did this to suit my needs, but I see a lot of difficulties for installation, so I decided to share, maybe it will help someone.
 
@@ -31,8 +33,9 @@ The main apps are:
 - `packages` shared packages across apps
   - `ui` includes your custom UI kit that will be optimized by Tamagui
   - `app` you'll be importing most files from `app/`
-    - `features` (don't use a `screens` folder. organize by feature.)
-    - `provider` (all the providers that wrap the app, and some no-ops for Web.)
+    - `features`   (don't use a `screens` folder. organize by feature.)
+    - `provider`   (all the providers that wrap the app, and some no-ops for Web.)
+    - `navigation` (react-navigation/native scheme)
 
 You can add other folders inside of `packages/` if you know what you're doing and have a good reason to.
 
