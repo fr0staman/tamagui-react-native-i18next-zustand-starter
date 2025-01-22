@@ -37,6 +37,6 @@
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^10.0.1",
     "tree-kill": "^1.2.2",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.8"
   }
 }
