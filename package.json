@@ -13,13 +13,14 @@
     "web:extract": "DISABLE_EXTRACTION=false yarn workspace next-app dev",
     "web:prod": "yarn workspace next-app build",
     "web:prod:serve": "yarn workspace next-app serve",
-    "fix": "manypkg fix",
-    "postinstall": "yarn check-deps && yarn build",
+    "postinstall": "yarn check-tamagui && yarn build",
     "build": "yarn workspaces foreach --all --exclude next-app run build",
     "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest react-native-web-lite@latest",
     "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary react-native-web-lite@canary",
-    "check-deps": "check-dependency-version-consistency .",
-    "test": "vitest"
+    "check-tamagui": "tamagui check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky"
   },
   "resolutions": {
     "react": "^18.3.1",
@@ -30,8 +31,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.20.0",
-    "@manypkg/cli": "^0.21.4",
     "@react-native/eslint-config": "0.75.3",
+    "@tamagui/cli": "^1.122.7",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "check-dependency-version-consistency": "^4.1.0",
