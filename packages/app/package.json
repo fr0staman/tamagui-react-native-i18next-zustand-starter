@@ -9,21 +9,22 @@
   "dependencies": {
     "@my/ui": "0.0.1",
     "@react-native-async-storage/async-storage": "^2.0.0",
-    "@react-navigation/native": "^6.1.18",
-    "@tamagui/animations-react-native": "^1.122.7",
-    "@tamagui/colors": "^1.122.7",
-    "@tamagui/font-inter": "^1.122.7",
-    "@tamagui/lucide-icons": "^1.122.7",
-    "@tamagui/shorthands": "^1.122.7",
-    "@tamagui/themes": "^1.122.7",
+    "@react-navigation/native": "^7.1.8",
+    "@tamagui/animations-react-native": "^1.140.0",
+    "@tamagui/colors": "^1.140.0",
+    "@tamagui/font-inter": "^1.140.0",
+    "@tamagui/lucide-icons": "^1.140.0",
+    "@tamagui/shorthands": "^1.140.0",
+    "@tamagui/themes": "^1.140.0",
     "burnt": "^0.12.2",
     "i18next": "^23.15.1",
     "react-i18next": "^15.0.2",
-    "react-native-safe-area-context": "4.11.0",
+    "react-native-safe-area-context": "5.4.0",
     "solito": "^4.2.2",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@types/react": "^18.2.6"
+    "@types/react": "~19.0.10",
+    "@types/react-native": "^0.73.0"
   }
 }
