@@ -11,7 +11,7 @@ So, I decided to just do it, maybe it will help others.
 
 ## 🔧 Integration
 
-_with React Native 0.75.3_
+_with React Native 0.79.2_
 
 ### 0. Add tamagui to dependencies
 
