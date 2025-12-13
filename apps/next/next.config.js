@@ -50,6 +50,7 @@ const plugins = [
         return true;
       }
     },
+    disableThemesBundleOptimize: true,
     excludeReactNativeWebExports: ["Switch", "ProgressBar", "Picker", "CheckBox", "Touchable"],
   }),
 ];
