@@ -1,4 +1,4 @@
-import { useAppTheme } from "@my/ui";
+import { useAppTheme } from "app/hooks/useAppTheme";
 import { AppStack } from "app/navigation/native";
 import { Provider } from "app/provider";
 import { Theme } from "app/theme/constants";

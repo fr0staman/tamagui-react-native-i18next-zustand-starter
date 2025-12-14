@@ -1,4 +1,5 @@
-import { Theme, useAppTheme } from "@my/ui";
+import { Theme } from "@my/ui";
+import { useAppTheme } from "app/hooks/useAppTheme";
 import { useColorScheme } from "react-native";
 
 import { AppNavContainer } from "../navigation";

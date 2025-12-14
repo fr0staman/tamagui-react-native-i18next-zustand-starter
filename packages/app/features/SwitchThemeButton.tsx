@@ -1,6 +1,7 @@
 "use client";
 
-import { useAppTheme, useClient } from "@my/ui";
+import { useAppTheme } from "app/hooks/useAppTheme";
+import { useClient } from "app/hooks/useClient";
 import { useAppTranslation } from "app/i18n";
 import { Theme } from "app/theme/constants";
 import { Button } from "tamagui";

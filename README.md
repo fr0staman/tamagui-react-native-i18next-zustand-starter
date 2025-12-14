@@ -9,19 +9,24 @@ This monorepo is a starter, example for an React Native CLI + Next.js + Tamagui 
 
 This is a fork from <a href="https://github.com/tamagui/starter-free">official tamagui template</a>.
 
-App and Pages Router with `i18next` simultaneosly!
-
 I did this to suit my needs, but I see a lot of difficulties for installation, so I decided to share, maybe it will help someone.
+
+Key differences:
+- React Native CLI app (with Tamagui compiler!)
+- Routing with [solito](https://solito.dev) + react-navigation
+- `i18next` for native and web (app/pages router simultaneously!)
+- Better SSR support for Next.js
 
 ## 📦 Included packages
 
-- [Tamagui](https://tamagui.dev) 🪄
+- React Native 0.83
+- Next.js 16
+- [tamagui](https://tamagui.dev) 🪄
 - [solito](https://solito.dev) for cross-platform navigation
-- React Native CLI
-- Next.js
-- React-navigation
-- Zustand
+- react-navigation 7
 - i18next
+- zustand
+- react-native-mmkv
 
 ## 🗂 Folder layout
 

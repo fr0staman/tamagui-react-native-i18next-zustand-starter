@@ -3790,17 +3790,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@react-native-async-storage/async-storage@npm:2.0.0"
-  dependencies:
-    merge-options: "npm:^3.0.4"
-  peerDependencies:
-    react-native: ^0.0.0-0 || >=0.65 <1.0
-  checksum: 10/cd00a7fac584bfce350c0ad56a542e19c5aa77bec41a211f004c87343e971819d38c5483470fd11116e0271a5e1321ce656cc0bb66d2aa0852f74bc23be61a77
-  languageName: node
-  linkType: hard
-
 "@react-native-community/cli-clean@npm:20.0.0":
   version: 20.0.0
   resolution: "@react-native-community/cli-clean@npm:20.0.0"
@@ -7699,7 +7688,6 @@ __metadata:
   resolution: "app@workspace:packages/app"
   dependencies:
     "@my/ui": "npm:0.0.1"
-    "@react-native-async-storage/async-storage": "npm:^2.0.0"
     "@react-navigation/native": "npm:^7.1.8"
     "@tamagui/animations-react-native": "npm:^1.140.3"
     "@tamagui/build": "npm:^1.140.3"
@@ -7712,6 +7700,7 @@ __metadata:
     burnt: "npm:^0.13.0"
     i18next: "npm:^25.7.2"
     react-i18next: "npm:^16.5.0"
+    react-native-mmkv: "npm:^4.1.0"
     react-native-safe-area-context: "npm:^5.6.2"
     solito: "npm:^5.0.0"
     zustand: "npm:^5.0.9"
@@ -12235,13 +12224,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-plain-obj@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "is-plain-obj@npm:2.1.0"
-  checksum: 10/cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
-  languageName: node
-  linkType: hard
-
 "is-plain-object@npm:^2.0.4":
   version: 2.0.4
   resolution: "is-plain-object@npm:2.0.4"
@@ -13475,15 +13457,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"merge-options@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "merge-options@npm:3.0.4"
-  dependencies:
-    is-plain-obj: "npm:^2.1.0"
-  checksum: 10/d86ddb3dd6e85d558dbf25dc944f3527b6bacb944db3fdda6e84a3f59c4e4b85231095f58b835758b9a57708342dee0f8de0dffa352974a48221487fe9f4584f
-  languageName: node
-  linkType: hard
-
 "merge-stream@npm:^2.0.0":
   version: 2.0.0
   resolution: "merge-stream@npm:2.0.0"
@@ -14049,7 +14022,6 @@ __metadata:
     "@babel/preset-env": "npm:^7.25.3"
     "@babel/runtime": "npm:^7.25.3"
     "@my/ui": "npm:0.0.1"
-    "@react-native-async-storage/async-storage": "npm:^2.0.0"
     "@react-native-community/cli": "npm:20.0.0"
     "@react-native-community/cli-platform-android": "npm:20.0.0"
     "@react-native-community/cli-platform-ios": "npm:20.0.0"
@@ -14071,6 +14043,8 @@ __metadata:
     react-native: "npm:0.83.0"
     react-native-gesture-handler: "npm:~2.29.1"
     react-native-localize: "npm:^3.2.1"
+    react-native-mmkv: "npm:^4.1.0"
+    react-native-nitro-modules: "npm:^0.31.10"
     react-native-safe-area-context: "npm:^5.6.2"
     react-native-screens: "npm:4.18.0"
     react-native-svg: "npm:15.15.1"
@@ -15603,6 +15577,27 @@ __metadata:
     react-native-macos:
       optional: true
   checksum: 10/8b34c53341679400de1081c5064123c08e4f54bba1311cf98de5a1cb52607bbf415608b100de1a85a35415e009f60e64ceab799eda5a7991632747cd3ef3ed4e
+  languageName: node
+  linkType: hard
+
+"react-native-mmkv@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "react-native-mmkv@npm:4.1.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-nitro-modules: "*"
+  checksum: 10/306b2b1371bb58152ec562326d93f25e5cf173f31a313ce78202d3681c3cc6f5a0ca792726f94d3482d3bd0fa341735b046223bbe4b85baacba006307d76a792
+  languageName: node
+  linkType: hard
+
+"react-native-nitro-modules@npm:^0.31.10":
+  version: 0.31.10
+  resolution: "react-native-nitro-modules@npm:0.31.10"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 10/b0dabcc7c251660d39c712898a2147fcb14bf99cbf2a1a4ff0bc2c8798e4d72b4d3a2ee03e684a1454aaee6a17d665ab38c3f445234a2e17aced32b776ecac38
   languageName: node
   linkType: hard
 

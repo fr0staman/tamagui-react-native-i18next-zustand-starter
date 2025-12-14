@@ -1,6 +1,6 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createMMKV } from "react-native-mmkv";
 import { create, useStore as useZustandStore } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { createJSONStorage, persist, StateStorage } from "zustand/middleware";
 
 import { Language } from "../i18n/languages";
 import { Theme } from "../theme/constants";
@@ -17,6 +17,14 @@ type Actions = {
   setTheme: (theme: Theme) => void;
   setLang: (lang: Language) => void;
   reset: () => void;
+};
+
+const mmkv = createMMKV();
+
+const mmkvStorage: StateStorage = {
+  getItem: (key) => mmkv.getString(key) ?? null,
+  setItem: (key, value) => mmkv.set(key, value),
+  removeItem: (key) => mmkv.remove(key),
 };
 
 export const initialState = {
@@ -43,7 +51,7 @@ export const appState = create<State & Actions>()(
     }),
     {
       name: "app-storage",
-      storage: createJSONStorage(() => AsyncStorage),
+      storage: createJSONStorage(() => mmkvStorage),
       onRehydrateStorage: () => (state) => {
         state?.__setHasHydrated(true);
       },
