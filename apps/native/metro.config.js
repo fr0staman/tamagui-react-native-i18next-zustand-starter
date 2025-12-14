@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 /**
  * Metro configuration
  * https://reactnative.dev/docs/metro

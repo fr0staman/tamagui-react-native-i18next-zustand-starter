@@ -14,19 +14,19 @@ export function generateStaticParams() {
   return i18nConfig.i18n.locales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({
-  children,
-  params: { locale },
-}: {
+type LayoutProps = {
   children: React.ReactNode;
-  params: { locale: string };
-}) {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function RootLayout({ children, params }: LayoutProps) {
+  const { locale } = await params;
   if (!i18nConfig.i18n.locales.includes(locale)) {
     notFound();
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="t_unmounted t_light" suppressHydrationWarning>
       <body>
         <NextTamaguiProvider>{children}</NextTamaguiProvider>
       </body>

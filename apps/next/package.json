@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "cd ../.. && yarn build && cd apps/next && next build",
+    "dev": "next dev --webpack",
+    "build": "cd ../.. && yarn build && cd apps/next && next build --webpack",
     "start": "next start",
     "serve": "NODE_ENV=production next start --port 8151",
     "lint": "next lint",
@@ -15,26 +15,26 @@
     "@tamagui/next-theme": "^1.140.3",
     "app": "0.0.0",
     "i18next-resources-to-backend": "^1.2.1",
-    "next": "^14.2.14",
-    "next-i18next": "^15.2.0",
-    "next-intl": "^3.20.0",
-    "next-seo": "^6.5.0",
+    "next": "^16.0.10",
+    "next-i18next": "^15.4.3",
+    "next-intl": "^4.6.0",
+    "next-seo": "^6.8.0",
     "raf": "^3.4.1",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.2",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.83.0",
     "react-native-web": "^0.21.2",
     "tamagui": "^1.140.3",
     "vercel": "48.12.1"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.2.14",
-    "@next/eslint-plugin-next": "^14.2.14",
+    "@next/bundle-analyzer": "^16.0.10",
+    "@next/eslint-plugin-next": "^16.0.10",
     "@tamagui/next-plugin": "^1.140.3",
     "@types/node": "^20.14.1",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^10.0.1",
     "tree-kill": "^1.2.2",
-    "vitest": "^2.1.8"
+    "vitest": "^4"
   }
 }

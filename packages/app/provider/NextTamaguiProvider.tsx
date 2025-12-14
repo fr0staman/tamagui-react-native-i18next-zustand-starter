@@ -35,7 +35,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
             __html: config.getCSS({
               // if you are using "outputCSS" option, you should use this "exclude"
               // if not, then you can leave the option out
-              exclude: process.env.NODE_ENV === 'production' ? 'design-system' : null,
+              exclude: process.env.NODE_ENV === "production" ? "design-system" : null,
             }),
           }}
         />
@@ -46,7 +46,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
             __html: "document.documentElement.classList.add('t_unmounted')",
           }}
         />
-        {/* eslint-disable-next-line react/no-unknown-property */}
+        {/* @ts-ignore eslint-disable-next-line react/no-unknown-property */}
         <style jsx global key="tamagui-css">{`
           html {
             font-family: "Inter";
@@ -64,7 +64,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
         setTheme(next as Parameters<typeof setTheme>[0]);
       }}
     >
-      <Provider disableRootThemeClass defaultTheme={theme || 'light'}>
+      <Provider disableRootThemeClass defaultTheme={theme || "light"}>
         {children}
       </Provider>
     </NextThemeProvider>

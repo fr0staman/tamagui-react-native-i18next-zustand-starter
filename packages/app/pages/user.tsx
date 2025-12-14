@@ -12,8 +12,8 @@ export function UserDetailScreen() {
   const { id } = useParams();
 
   return (
-    <YStack f={1} jc="center" ai="center" gap="$4" bg="$background">
-      <Paragraph ta="center" fow="700" col="$blue10">
+    <YStack flex={1} justifyContent="center" alignItems="center" gap="$4" bg="$background">
+      <Paragraph textAlign="center" fontWeight="700" color="$blue10">
         {t("userId", { id })}
       </Paragraph>
       <Button icon={ChevronLeft} onPress={() => router.back()}>

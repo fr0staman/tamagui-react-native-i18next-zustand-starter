@@ -1,7 +1,8 @@
 import { config } from "@my/config";
-
+import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 // Color scheme from @react-navigation/native 6.1.9 to tamagui 1.90.6
 export const TamaguiNavigationDefaultTheme = {
+  ...DefaultTheme,
   dark: false,
   colors: {
     primary: config.themes.light.blue9.val,
@@ -14,6 +15,7 @@ export const TamaguiNavigationDefaultTheme = {
 };
 
 export const TamaguiNavigationDarkTheme = {
+  ...DarkTheme,
   dark: true,
   colors: {
     primary: config.themes.dark.blue9.val,

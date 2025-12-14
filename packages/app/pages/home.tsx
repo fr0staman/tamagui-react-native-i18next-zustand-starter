@@ -30,31 +30,31 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
   });
 
   return (
-    <YStack f={1} jc="center" ai="center" gap="$8" p="$4" bg="$background">
+    <YStack flex={1} justifyContent="center" alignItems="center" gap="$8" p="$4" bg="$background">
       <XStack
-        pos="absolute"
-        w="100%"
+        position="absolute"
+        width="100%"
         t="$6"
         gap="$6"
-        jc="center"
-        fw="wrap"
-        $sm={{ pos: "relative", t: 0 }}
+        justifyContent="center"
+        flexWrap="wrap"
+        $sm={{ position: "relative", t: 0 }}
       >
         {isWeb && <SwitchRouterButton pagesMode={pagesMode} />}
         <SwitchThemeButton />
         <SwitchLangButton />
       </XStack>
-      <YStack gap="$4" bc="$background">
-        <H1 ta="center" col="$color12">
+      <YStack gap="$4" backgroundColor="$background">
+        <H1 textAlign="center" color="$color12">
           {t("welcome")}
         </H1>
-        <Paragraph col="$color10" ta="center">
+        <Paragraph color="$color10" textAlign="center">
           {t("homeDescriptionFirst")}
         </Paragraph>
 
         <Separator />
 
-        <Paragraph ta="center">{t("homeDescriptionSecond")}</Paragraph>
+        <Paragraph textAlign="center">{t("homeDescriptionSecond")}</Paragraph>
 
         <Separator />
       </YStack>
@@ -96,18 +96,24 @@ function SheetDemo() {
       >
         <Sheet.Overlay animation="lazy" enterStyle={{ opacity: 0 }} exitStyle={{ opacity: 0 }} />
         <Sheet.Handle bg="$gray8" />
-        <Sheet.Frame ai="center" jc="center" gap="$10" bg="$color2">
+        <Sheet.Frame alignItems="center" justifyContent="center" gap="$10" bg="$color2">
           <XStack gap="$2">
-            <Paragraph ta="center">
+            <Paragraph textAlign="center">
               <Trans
                 i18nKey={"modifiedBy"}
                 t={t}
                 components={{
                   author: (
-                    <Anchor color="$color12" href="https://github.com/fr0staman" target="_blank" />
+                    <Anchor
+                      key="author"
+                      color="$color12"
+                      href="https://github.com/fr0staman"
+                      target="_blank"
+                    />
                   ),
                   star: (
                     <Anchor
+                      key="star"
                       color="$color12"
                       href="https://github.com/fr0staman/tamagui-react-native-i18next-zustand-starter"
                       target="_blank"

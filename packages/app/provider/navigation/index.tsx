@@ -4,29 +4,28 @@ import {
   TamaguiNavigationDarkTheme,
   TamaguiNavigationDefaultTheme,
 } from "app/theme/nativeNavigationThemes";
-import { useMemo } from "react";
 
 type AppNavContainerProps = {
   children: React.ReactNode;
   theme?: Theme;
 };
 
+const linking = {
+  prefixes: ["/"],
+  config: {
+    initialRouteName: "home",
+    screens: {
+      home: "",
+      user: "user/:id",
+    },
+  },
+} as const;
+
 export const AppNavContainer = ({ children, theme }: AppNavContainerProps) => {
   return (
     <NavigationContainer
-      linking={useMemo(
-        () => ({
-          prefixes: ["/"],
-          config: {
-            initialRouteName: "home",
-            screens: {
-              home: "",
-              user: "user/:id",
-            },
-          },
-        }),
-        [],
-      )}
+      // @ts-expect-error const typing without readonly
+      linking={linking}
       theme={theme === Theme.Dark ? TamaguiNavigationDarkTheme : TamaguiNavigationDefaultTheme}
     >
       {children}

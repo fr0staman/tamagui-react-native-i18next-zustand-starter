@@ -15,6 +15,7 @@ export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     AppRegistry.registerComponent("Main", () => Main);
     const page = await ctx.renderPage();
+
     // @ts-ignore
     const { getStyleElement } = AppRegistry.getApplication("Main");
 
@@ -32,7 +33,6 @@ export default class Document extends NextDocument {
           }),
         }}
       />,
-      /* eslint-disable-next-line react/no-unknown-property, react/jsx-key, @next/next/no-styled-jsx-in-document */
       <style jsx global key="tamagui-css">{`
         html {
           font-family: "Inter";

@@ -1,20 +1,20 @@
-import { createInterFont } from '@tamagui/font-inter'
+import { createInterFont } from "@tamagui/font-inter";
 
 export const headingFont = createInterFont({
   size: {
     6: 15,
   },
   transform: {
-    6: 'uppercase',
-    7: 'none',
+    6: "uppercase",
+    7: "none",
   },
   weight: {
-    6: '400',
-    7: '700',
+    6: "400",
+    7: "700",
   },
   color: {
-    6: '$colorFocus',
-    7: '$color',
+    6: "$colorFocus",
+    7: "$color",
   },
   letterSpacing: {
     5: 2,
@@ -28,18 +28,18 @@ export const headingFont = createInterFont({
     15: -6,
   },
   face: {
-    700: { normal: 'InterBold' },
+    700: { normal: "Inter-Bold" },
   },
-})
+});
 
 export const bodyFont = createInterFont(
   {
     face: {
-      700: { normal: 'InterBold' },
+      700: { normal: "Inter-Bold" },
     },
   },
   {
     sizeSize: (size) => Math.round(size * 1.1),
     sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
-  }
-)
+  },
+);

@@ -3,12 +3,12 @@ import "@tamagui/font-inter/css/400.css";
 import "@tamagui/font-inter/css/700.css";
 import "raf/polyfill";
 
-import type React from 'react'
+import { config } from "@my/ui";
+import { NextTamaguiProvider } from "app/provider/NextTamaguiProvider";
 import Head from "next/head";
 import { appWithTranslation } from "next-i18next";
+import type React from "react";
 import type { SolitoAppProps } from "solito";
-import { NextTamaguiProvider } from 'app/provider/NextTamaguiProvider'
-import { config } from '@my/ui'
 
 if (process.env.NODE_ENV === "production") {
   require("../public/tamagui.css");
@@ -19,7 +19,10 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
     <>
       <Head>
         <title>Tamagui • Pages Router</title>
-        <meta name="description" content="Tamagui, Solito, Zustand, i18next, React Native & Next.js" />
+        <meta
+          name="description"
+          content="Tamagui, Solito, Zustand, i18next, React Native & Next.js"
+        />
         <link rel="icon" href="/favicon.ico" />
         <style
           dangerouslySetInnerHTML={{
@@ -34,7 +37,7 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
             __html: config.getCSS({
               // if you are using "outputCSS" option, you should use this "exclude"
               // if not, then you can leave the option out
-              exclude: process.env.NODE_ENV === 'production' ? 'design-system' : null,
+              exclude: process.env.NODE_ENV === "production" ? "design-system" : null,
             }),
           }}
         />

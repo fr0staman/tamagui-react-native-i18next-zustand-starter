@@ -1,17 +1,18 @@
 import { HomeScreen } from "app/pages/home";
-import TranslationsProvider from "components/TranslationsProvider";
 import { Metadata } from "next";
 
+import TranslationsProvider from "../../components/TranslationsProvider";
 import initTranslations from "../../i18n";
 import nextI18nextConfig from "../../next-i18next.config";
 
 type Props = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   const { t } = await initTranslations(locale, ["seo"]);
 
   return {
@@ -21,7 +22,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   };
 }
 
-async function Home({ params: { locale } }: Props) {
+async function Home({ params }: Props) {
+  const { locale } = await params;
   const { resources } = await initTranslations(locale, nextI18nextConfig.ns);
 
   return (

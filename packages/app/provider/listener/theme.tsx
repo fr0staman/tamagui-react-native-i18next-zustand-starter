@@ -3,7 +3,7 @@ import { useColorScheme } from "react-native";
 
 import { AppNavContainer } from "../navigation";
 
-export const ThemeListener = ({ children }) => {
+export const ThemeListener: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const scheme = useColorScheme();
   const { theme } = useAppTheme();
 
